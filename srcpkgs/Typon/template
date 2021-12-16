@@ -1,0 +1,21 @@
+pkgname=Typon
+version=1.0
+revision=1
+makedepends="ncurses-devel"
+short_desc="Typon(タイポン|Tai-Pon) is a typing practice tool that runs on a (linux/MacOS) terminal emulator."
+maintainer="Toasterbirb <git@toasterbirb.com>"
+license="MIT"
+homepage="https://github.com/ihsuy/Typon"
+distfiles="https://github.com/ihsuy/Typon/archive/refs/tags/v${version}.tar.gz"
+checksum=82c3f3579785fb6c7079fd9161af725281ae1892d7adc3da165db4ff1d686bf2
+wrksrc=${pkgname}-${version}/${pkgname}
+
+do_build() {
+	cd ${wrksrc}
+	make -j$(nproc)
+}
+
+do_install() {
+	vmkdir /usr/bin
+	vinstall typon 755 /usr/bin
+}
