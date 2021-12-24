@@ -1,0 +1,15 @@
+pkgname=ytfzf
+version=1.2.0
+revision=2
+depends="youtube-dl ueberzug"
+short_desc="A posix script to find and watch youtube videos from the terminal"
+maintainer="Toasterbirb <git@toasterbirb.com>"
+license="GPLv3"
+homepage="https://github.com/pystardust/ytfzf"
+distfiles="https://github.com/pystardust/ytfzf/archive/refs/tags/v${version}.tar.gz"
+checksum=244205d59f4fbab30c87740b7181c387a1892e23d8e20a034adcfaa686130fa7
+
+do_install() {
+	vmkdir /usr/bin
+	vinstall ytfzf 755 /usr/bin
+}

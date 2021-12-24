@@ -1,0 +1,22 @@
+pkgname=xnotify
+version=0.8.1
+revision=1
+build_style=gnu-makefile
+makedepends="imlib2-devel libXft-devel freetype-devel libXinerama-devel"
+short_desc="read notifications from stdin and pop them up on the screen"
+maintainer="Toasterbirb <git@toasterbirb.com>"
+license="MIT"
+homepage="https://github.com/phillbush/xnotify"
+distfiles="https://github.com/phillbush/xnotify/archive/refs/tags/v${version}.tar.gz"
+checksum=bb409c37e898674843d5279eb990b3da73cdbf00bc2dc2f8aa36fc0235e3ca7b
+
+do_build() {
+	sed -i "/CFLAGS/s|\${CPPFLAGS}|& $CFLAGS|g" config.mk
+	sed -i "/LDFLAGS/s|\-s|$LDFLAGS|g" config.mk
+	make CC=$CC INCS="-I. -I${XBPS_CROSS_BASE}/usr/include/freetype2"
+}
+
+do_install() {
+	make PREFIX=/usr DESTDIR=$DESTDIR install
+	vlicense LICENSE
+}

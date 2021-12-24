@@ -1,13 +1,13 @@
 pkgname=dde
-version=0.1
+version=0.1.1
 revision=1
 makedepends="libXinerama-devel libXft-devel freetype-devel libXrandr-devel"
 short_desc="Desktop environment built around suckless programs and other minimalist stuff"
 maintainer="Toasterbirb <git@toasterbirb.com>"
 license="GPLv3"
 homepage="https://github.com/Toasterbirb/dde"
-distfiles="https://github.com/Toasterbirb/dde/releases/download/0.1/dde.tar.gz"
-checksum=3b3eb32423749c05a21cb8a5a7a35e6a6791ec9a68d4fbe2fff8b5ba34fa7b81
+distfiles="https://github.com/Toasterbirb/dde/releases/download/${version}/dde-${version}.tar.gz"
+checksum=1e548dead72364263424cc3050504c8df79cf58f08666431776de4edc9ac6ed5
 wrksrc=${pkgname}
 
 do_build() {
