@@ -1,7 +1,7 @@
 # Template file for 'deluge'
 pkgname=deluge
-version=2.0.3
-revision=15
+version=2.0.5
+revision=1
 build_style=python3-module
 # TODO package python3-slimit to minify javascript
 hostmakedepends="intltool python3-setuptools python3-wheel"
@@ -10,11 +10,11 @@ depends="python3-setuptools python3-chardet python3-Twisted python3-Mako
  python3-Pillow"
 checkdepends="python3-pytest $depends"
 short_desc="Fully-featured cross-platform BitTorrent client"
-maintainer="Alexey Rochev <equeim@gmail.com>"
+maintainer="Toasterbirb <git@toasterbirb.com>"
 license="GPL-3.0-or-later"
 homepage="https://deluge-torrent.org/"
 distfiles="https://ftp.osuosl.org/pub/deluge/source/2.0/deluge-${version}.tar.xz"
-checksum=7e7ae8e6ca2a2bf0d487227cecf81e27332f0b92b567cc2bda38e47d859da891
+checksum=c4bd04abfd211b65218be03f3c46d26f44024884de10e01859fb856fdd6f25d8
 
 system_accounts="deluge"
 deluge_homedir="/var/lib/deluge"
