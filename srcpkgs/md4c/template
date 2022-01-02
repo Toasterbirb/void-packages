@@ -1,0 +1,12 @@
+pkgname=md4c
+version=0.4.8
+revision=1
+build_style=cmake
+#makedepends=""
+short_desc="C Markdown parser"
+maintainer="Toasterbirb <git@toasterbirb.com>"
+license="MIT"
+homepage="https://github.com/mity/md4c"
+distfiles="https://github.com/mity/md4c/archive/refs/tags/release-${version}.tar.gz"
+checksum=4a457df853425b6bb6e3457aa1d1a13bccec587a04c38c622b1013a0da41439f
+wrksrc=${pkgname}-release-${version}

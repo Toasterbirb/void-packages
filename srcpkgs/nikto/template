@@ -1,0 +1,24 @@
+# Template file for 'nikto'
+pkgname=nikto
+version=2.1.6
+revision=1
+depends="perl"
+short_desc="Web server scanner"
+maintainer="Toasterbirb <git@toasterbirb.com>"
+license="GPL-2.0"
+homepage="https://github.com/sullo/nikto"
+distfiles="https://github.com/sullo/nikto/archive/refs/tags/${version}.tar.gz"
+checksum=c1731ae4133d3879718bb7605a8d395b2036668505effbcbbcaa4dae4e9f27f2
+
+do_install() {
+	vmkdir usr/bin
+	vmkdir usr/share/nikto
+	
+	vcopy program/plugins usr/share/nikto/
+	vcopy program/templates usr/share/nikto/
+	vcopy program/databases usr/share/nikto/
+
+	vcopy program/nikto.pl usr/bin/nikto
+	vinstall ${FILESDIR}/nikto.conf 644 etc
+	vman documentation/nikto.1
+}
