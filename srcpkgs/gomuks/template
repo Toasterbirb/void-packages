@@ -10,13 +10,3 @@ license="AGPL-3.0"
 homepage="https://maunium.net/go/gomuks/"
 distfiles="https://github.com/tulir/gomuks/archive/refs/tags/v${version}.tar.gz"
 checksum="b40e2fdc14e8300d0b95afd032654e588d2390c56d4a9abd46ebc9831033fdd8"
-
-#do_build() {
-#	go build
-#}
-#
-#do_install() {
-#	vmkdir usr/bin
-#	vinstall gomuks 755 usr/bin
-#	vlicense LICENSE
-#}
