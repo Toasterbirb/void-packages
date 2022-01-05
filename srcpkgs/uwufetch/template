@@ -1,0 +1,27 @@
+# Template file for 'uwufetch'
+pkgname=uwufetch
+version=1.7
+revision=1
+#build_style=gnu-makefile
+depends="xwininfo"
+short_desc="A meme system info tool for Linux"
+maintainer="Toasterbirb <git@toasterbirb.com>"
+license="GPL-3.0"
+homepage="https://github.com/TheDarkBug/uwufetch"
+distfiles="https://github.com/TheDarkBug/uwufetch/archive/refs/tags/${version}.tar.gz"
+checksum="6fa341b68d4c8c4bf4ff12d88ea0a81d35328992530d3747ba6b186095f09554"
+
+do_build() {
+	make CC=$CC
+}
+
+do_install() {
+	vmkdir usr/bin
+	vinstall uwufetch 755 usr/bin
+
+	vmkdir usr/lib/uwufetch
+	vcopy ${wrksrc}/res/* usr/lib/uwufetch
+
+	vman uwufetch.1
+	vlicense LICENSE
+}
