@@ -2,16 +2,12 @@
 pkgname=polymc
 version=1.0.4
 revision=1
-build_style=cmake
-configure_args="-DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DLauncher_LAYOUT=lin-system"
 hostmakedepends="cmake gcc git"
 makedepends="qt5-devel qtchooser qt5-qmake zlib-devel openjdk libglib-devel"
 short_desc="Minecraft launcher for managing multiple installations at once"
 maintainer="Toasterbirb <git@toasterbirb.com>"
 license="GPL"
 homepage="https://github.com/PolyMC/PolyMC"
-#distfiles="https://github.com/PolyMC/PolyMC/archive/refs/tags/${version}.tar.gz"
-#checksum="8b8d6579e794788c312ae73482c39fe3d6ff93c4faccec8283f6f1f405e2c4c1"
 wrksrc="PolyMC-${version}"
 
 export Qt5Core_DIR="/usr/lib/cmake/Qt5Core"
@@ -19,11 +15,19 @@ export Qt5Core_DIR="/usr/lib/cmake/Qt5Core"
 do_fetch() {
 	git clone --recursive https://github.com/PolyMC/PolyMC.git ${wrksrc}
 	cd ${wrksrc}
+	git checkout 1.0.4
+}
+
+do_build() {
+	mkdir ${wrksrc}/build
+	cd ${wrksrc}/build
+	cmake -S .. \
+		-DCMAKE_BUILD_TYPE=Release \
+		-DCMAKE_INSTALL_PREFIX="/usr" \
+		-DLauncher_LAYOUT=lin-system
 }
 
 do_install() {
-	vmkdir usr/lib
-	vcopy ${wrksrc}/build/*.so usr/lib/
-	vmkdir usr/bin
-	vinstall ${wrksrc}/build/polymc 755 usr/bin
+	cd ${wrksrc}/build
+	make -j$(nproc) PREFIX=/usr DESTDIR=$DESTDIR install
 }
