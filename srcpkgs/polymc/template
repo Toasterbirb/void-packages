@@ -1,7 +1,7 @@
 # Template file for 'PolyMC'
 pkgname=polymc
 version=1.0.4
-revision=1
+revision=2
 hostmakedepends="cmake gcc git"
 makedepends="qt5-devel qtchooser qt5-qmake zlib-devel openjdk libglib-devel"
 short_desc="Minecraft launcher for managing multiple installations at once"
